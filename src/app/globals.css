@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nearblack: #0E0E10;
+  --magenta: #FF2E63;
+  --paper: #F5F4F2;
+  --mist: #96969E;
+
+  /* Dark mode default (brand) */
+  --bg: #0E0E10;
+  --bg2: #161618;
+  --surface: #1C1C1F;
+  --surface2: #242428;
+  --text: #F5F4F2;
+  --text2: #96969E;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.14);
+  --primary: #FF2E63;
+  --primary-dim: rgba(255,46,99,0.12);
+}
+
+.light {
+  --bg: #F5F4F2;
+  --bg2: #ECEAE8;
+  --surface: #FFFFFF;
+  --surface2: #F0EFED;
+  --text: #0E0E10;
+  --text2: #5A5A62;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.14);
+  --primary: #FF2E63;
+  --primary-dim: rgba(255,46,99,0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+::selection { background: var(--primary); color: #fff; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* X mark SVG path reusable */
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(255,46,99,0.4)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255,46,99,0.8)); }
+}
+
+.x-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 20s linear infinite; }
